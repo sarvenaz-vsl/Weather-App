@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="searchContainer">
+        <input class="searchControl" type="text" placeholder="City Name or Zipcode" id="searchInput">
+        <button class="searchControl" id="searchBtn">Search</button>
+    </div>
+
+    <div id="weatherContainer">
+        <div id="weatherDescription">
+            <div id="cityHeader"></div>
+            <div id="countryName"></div>
+            <div><br></div>
+            <div id="weatherMain">
+                <div id="temperature"></div>
+                <div id="weatherDescriptionHeader"></div>
+                <div>
+                    <img id="documentIconImg">
+                </div>
+
+                <hr>
+                <div id="tempMin" class="bottomDetails"></div>
+                <div id="tempMax" class="bottomDetails"></div>
+                <div id="windSpeed" class="bottomDetails"></div>
+                <div id="humidity" class="bottomDetails"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

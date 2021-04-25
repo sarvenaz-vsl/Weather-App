@@ -60,13 +60,25 @@ function init(resultFromServer) {
     weatherIcon.src = 'http://openweathermap.org/img/w/' + resultFromServer.weather[0].icon + '.png';
     let resultDescription = resultFromServer.weather[0].description;
     weatherDescriptionHeader.innerText = resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
-    temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176' + "C";
+    temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176';
     tempMinElement.innerHTML = "Low : " + Math.floor(resultFromServer.main.temp_min) + '&#176' + "C";
     tempMaxElement.innerHTML = "High : " + Math.ceil(resultFromServer.main.temp_max) + '&#176' + "C";
-    humidityElement.innerHTML = "Humidity levels at " + resultFromServer.main.humidity + '%';
-    windSpeedElement.innerHTML = "Winds at " + Math.floor(resultFromServer.wind.speed) + "m/s";
+    humidityElement.innerHTML = "Humidity : " + resultFromServer.main.humidity + '%';
+    windSpeedElement.innerHTML = "Wind Speed : " + Math.floor(resultFromServer.wind.speed) + "m/s";
     cityHeader.innerHTML = resultFromServer.name;
     countryName.innerHTML = resultFromServer.sys.country;
+    
+    setPositionForWeatherInfo();
+}
+
+function setPositionForWeatherInfo() {
+    let weatherContainer = document.getElementById('weatherContainer');
+    let weatherContainerHeight = weatherContainer.clientHeight;
+    let weatherContainerWidth = weatherContainer.clientWidth;
+
+    weatherContainer.style.left = `calc(50% - ${weatherContainerWidth/2}px)`;
+    weatherContainer.style.top = `calc(50% - ${weatherContainerHeight/2}px)`;
+    weatherContainer.style.visibility = 'visible';
 }
 
 document.getElementById('searchBtn').addEventListener('click', () => {

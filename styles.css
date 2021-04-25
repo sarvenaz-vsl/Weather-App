@@ -1,0 +1,95 @@
+body {
+    background-image: url('./img/default.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 94vh;
+    color: white;
+    text-shadow: 2px 2px 1px black;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    position: relative;
+}
+
+#cityHeader {    
+    text-align: center;
+    font-size: 42px;
+    font-weight: bold;
+    margin: 5px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+#countryName {
+    text-align: center;
+    font-size: 14px;
+}
+
+#weatherContainer {
+    background-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 1px 5px black;
+    border-radius: 10px;
+    padding: 50px;
+    position: absolute;
+    text-align: center;
+    visibility: hidden;
+}
+
+/* ---------Search--------- */
+#searchContainer {
+    margin-bottom: 10px;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#searchContainer input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    outline: none;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .45);
+    text-align: center;
+    font-size: 16px;
+}
+
+#searchContainer button {
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, .45);
+    cursor: pointer;
+}
+
+#searchContainer button:hover {
+    background-color: rgba(0, 0, 0, 0.25);
+    color: white;
+}
+
+#weatherMain {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#weatherMain .temp {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#weatherDescriptionHeader {
+    font-size: 21px;
+}
+
+#temperature {
+    font-size: 45px;
+}
+
+
+.bottomDetails {
+    display: block;
+    line-height: 2rem;
+    text-align: center;
+}

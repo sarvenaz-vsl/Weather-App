@@ -35,11 +35,15 @@ body {
 
 /* ---------Search--------- */
 #searchContainer {
-    margin-bottom: 10px;
     position: absolute;
     top: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: 2fr 0.5fr;
+    grid-gap: 0.4rem;
+    justify-content: center;
+    align-items: center;
 }
 
 #searchContainer input {
@@ -92,4 +96,19 @@ body {
     display: block;
     line-height: 2rem;
     text-align: center;
+}
+
+@media (max-width : 960px) {
+    body {
+        height: 99vh;
+    }
+    #searchContainer {
+        top: 20%;
+    }
+}
+
+@media (max-width : 600px) {
+    #searchContainer {
+        top: 10%;
+    }
 }

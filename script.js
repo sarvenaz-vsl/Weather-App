@@ -10,6 +10,7 @@ function getSearchMethod(searchTerm) {
 }
 
 function searchWeather(searchTerm) {
+
     getSearchMethod(searchTerm);
     fetch(`http://api.openweathermap.org/data/2.5/weather?${searchMethod}=${searchTerm}&APPID=${appId}&units=${units}`)
     .then(result => {
@@ -17,10 +18,10 @@ function searchWeather(searchTerm) {
     }).then(result => {
         init(result);
     })
+
 }
 
 function init(resultFromServer) {
-    console.log(resultFromServer);
     switch (resultFromServer.weather[0].main) {
         case 'Clear':
             document.body.style.backgroundImage = 'url("./img/clear.jpg")';
@@ -47,6 +48,7 @@ function init(resultFromServer) {
         default:
             break;
     }
+    
     let cityHeader = document.getElementById('cityHeader');
     let weatherDescriptionHeader = document.getElementById('weatherDescriptionHeader');
     let countryName = document.getElementById('countryName');
@@ -60,15 +62,19 @@ function init(resultFromServer) {
     weatherIcon.src = 'http://openweathermap.org/img/w/' + resultFromServer.weather[0].icon + '.png';
     let resultDescription = resultFromServer.weather[0].description;
     weatherDescriptionHeader.innerText = resultDescription.charAt(0).toUpperCase() + resultDescription.slice(1);
-    temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176';
-    tempMinElement.innerHTML = "Low : " + Math.floor(resultFromServer.main.temp_min) + '&#176' + "C";
-    tempMaxElement.innerHTML = "High : " + Math.ceil(resultFromServer.main.temp_max) + '&#176' + "C";
+    temperatureElement.innerHTML = Math.floor(resultFromServer.main.temp) + '&#176' + "c";
+    tempMinElement.innerHTML = "Low : " + Math.floor(resultFromServer.main.temp_min) + '&#176' + "c";
+    tempMaxElement.innerHTML = "High : " + Math.ceil(resultFromServer.main.temp_max) + '&#176' + "c";
     humidityElement.innerHTML = "Humidity : " + resultFromServer.main.humidity + '%';
     windSpeedElement.innerHTML = "Wind Speed : " + Math.floor(resultFromServer.wind.speed) + "m/s";
     cityHeader.innerHTML = resultFromServer.name;
     countryName.innerHTML = resultFromServer.sys.country;
     
     setPositionForWeatherInfo();
+
+    searchInput.value = '';
+
+
 }
 
 function setPositionForWeatherInfo() {
@@ -77,7 +83,7 @@ function setPositionForWeatherInfo() {
     let weatherContainerWidth = weatherContainer.clientWidth;
 
     weatherContainer.style.left = `calc(50% - ${weatherContainerWidth/2}px)`;
-    weatherContainer.style.top = `calc(50% - ${weatherContainerHeight/2}px)`;
+    weatherContainer.style.top = `calc(50% - ${weatherContainerHeight/2.2}px)`;
     weatherContainer.style.visibility = 'visible';
 }
 
@@ -85,4 +91,12 @@ document.getElementById('searchBtn').addEventListener('click', () => {
     let searchTerm = document.getElementById('searchInput').value;
     if(searchTerm)
         searchWeather(searchTerm);
+})
+
+document.addEventListener('keyup',function(event){
+    if(event.keyCode == 13){
+        let searchTerm = document.getElementById('searchInput').value;
+        if(searchTerm)
+            searchWeather(searchTerm);
+    }
 })

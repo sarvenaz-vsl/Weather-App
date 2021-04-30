@@ -1,13 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-image: url('./img/default.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
-    height: 94vh;
+    background-position: top center;
+    height: 97.7vh;
     color: white;
     text-shadow: 2px 2px 1px black;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     position: relative;
+    top: 0;
 }
 
 #cityHeader {    
@@ -36,7 +41,7 @@ body {
 /* ---------Search--------- */
 #searchContainer {
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: grid;
@@ -55,6 +60,10 @@ body {
     box-shadow: 2px 2px 1px rgba(0, 0, 0, .45);
     text-align: center;
     font-size: 16px;
+}
+
+#searchContainer input:focus {
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 #searchContainer button {
@@ -104,11 +113,11 @@ body {
     }
     #searchContainer {
         top: 20%;
-    }
+    } 
 }
 
 @media (max-width : 600px) {
     #searchContainer {
-        top: 10%;
-    }
+        top: 10%; 
+    }  
 }
